@@ -1,8 +1,0 @@
-# Asignación general
-*       @org/PR-Approvers
-
-# Módulo de autenticación
-/auth/  @org/Developers
-
-# Scripts de despliegue
-/scripts/deploy/ @org/DevOps
