@@ -1,0 +1,25 @@
+trigger:
+  branches:
+    include:
+      - dev
+      - release
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '6.x'
+
+- script: dotnet build
+  displayName: 'Build project'
+
+- script: dotnet test
+  displayName: 'Run unit tests'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
